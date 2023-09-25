@@ -3,7 +3,6 @@ const widthInput = document.querySelector('#width');
 const heightInput = document.querySelector('#height');
 const gridContainer = document.querySelector('.grid-container');
 
-
 function createGrid(width, height) {
     gridContainer.innerHTML = '';
     for (let i = 0; i < height; i++) {
@@ -25,14 +24,15 @@ function createRow(width) {
 function createSquare() {
     const square = document.createElement('div');
     square.classList.add('square');
+    square.dataset.brightness = 1;
     square.addEventListener('mouseover', e => {
-        // console.log("mouse over");
-        e.target.classList.remove('transparent')
-        e.target.classList.add('solid');
-    });
-    square.addEventListener('mouseout', e => {
-        e.target.classList.remove('solid')
-        e.target.classList.add('transparent');
+        const target = e.target;
+        target.classList.add('solid');
+        const brightness = target.dataset.brightness;
+        if (brightness > 0) {
+            target.dataset.brightness = brightness - 0.1;
+            target.style.filter = `brightness(${brightness})`;
+        }
     });
     return square;
 }

@@ -9,6 +9,7 @@ button {
     padding: 10px;
     width: 20%;
     align-self: center;
+    font-size: 12pt;
 }
 
 input {
@@ -40,6 +41,7 @@ input {
 }
 
 .grid-container {
+    border: 1px solid gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,14 +59,13 @@ input {
 }
 
 .square {
-    border: 1px solid gray;
     width: 20px;
     height: 100%;
     flex: 1 1 auto;
 }
 
 .solid {
-    background-color: rgb(93, 186, 209);
+    background-color: rgb(163, 233, 250);
 }
 
 .transparent {
