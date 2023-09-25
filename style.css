@@ -24,3 +24,11 @@
     min-width: 50px;
     min-height: 50px;
 }
+
+.solid {
+    background-color: rgb(93, 186, 209);
+}
+
+.transparent {
+    background-color: rgba(93, 186, 209, 0.336);
+}
