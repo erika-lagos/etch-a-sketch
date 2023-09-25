@@ -1,11 +1,15 @@
+const button = document.querySelector('button');
+const widthInput = document.querySelector('#width');
+const heightInput = document.querySelector('#height');
+const gridContainer = document.querySelector('.grid-container');
+
+
 function createGrid(width, height) {
-    const container = document.createElement('div');
-    container.classList.add('container');
+    gridContainer.innerHTML = '';
     for (let i = 0; i < height; i++) {
         const row = createRow(width);
-        container.appendChild(row);
+        gridContainer.appendChild(row);
     }
-    return container;
 }
 
 function createRow(width) {
@@ -33,10 +37,24 @@ function createSquare() {
     return square;
 }
 
+function resetGrid() {
+    width = +widthInput.value;
+    height = +heightInput.value;
+    if(width > 100 || height > 100) {
+        alert('Please select values up to 100');
+        return;
+    }
+    createGrid(width, height);
+}
+
 function init() {
-    const body = document.querySelector('body');
-    const grid = createGrid(16, 16);
-    body.appendChild(grid);
+    gridContainer.innerHTML = '';
+    widthInput.value = 16;
+    heightInput.value = 16;
+    createGrid(16, 16);
+    button.addEventListener('click', e => {
+        resetGrid();
+    });
 }
 
 init();

@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    margin: 30px;
+}
+
 .container,
 .row,
 .square {
@@ -6,23 +16,28 @@
     display: flex;
 }
 
-.container {
+.grid-container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    width: 800px;
+    height: 800px;
 }
 
 .row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    align-items: stretch;
+    height: 20px;
+    flex: 1 1 auto;
 }
 
 .square {
     border: 1px solid gray;
-    min-width: 50px;
-    min-height: 50px;
+    width: 20px;
+    height: 100%;
+    flex: 1 1 auto;
 }
 
 .solid {
